@@ -7,9 +7,12 @@ from src.system import System
 from src.errors import CardSystemError, ImportError
 
 VOCABULARY_PATH = "data/vocabulary.json"
-
 box_config = [{"name": "daily", "level": 1}, {"name": "every_3rd_day", "level": 3},{"name": "weekly", "level": 7}]
 
+"""
+Main loop, initalize the system and run them, 
+all errors are propogated up here
+"""
 def main():
     try: 
         card_importer = CardImporter(VOCABULARY_PATH)

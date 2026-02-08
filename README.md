@@ -29,6 +29,9 @@ Run in your terminal
 python3 main.py
 ```
 
+## Improvements
 
+* Better error handling
+* Add a daily to limit
 
 
