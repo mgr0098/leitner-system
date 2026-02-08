@@ -47,17 +47,12 @@ class SessionBox(Box):
     def __init__(self):
         super().__init__(0, "session_box")
     
-    # add shuffling
     def add_card(self, card):
         super().add_card(card)
         return
     
     def clear(self):
         self.cards.clear()
-    
-    def shuffle(self):
-        shuffle(self.cards)
-        
 
 @dataclass
 class Card():

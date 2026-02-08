@@ -24,8 +24,6 @@ def main():
         print("Progress Saved ...")
     except CardSystemError as cse:
         print(cse)
-    except:
-        print()
 
 if __name__ == "__main__":
     main()
