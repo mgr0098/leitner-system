@@ -1,1 +1,7 @@
-[{"front":"ciao", "back":"hallo"}, {"front":"halla balla", "back": "camma fa fra"}]
+{
+    "current_session": 0, 
+    "cards": 
+        [{"front": "Gatto", "back": "Cat", "level": 0}, 
+        {"front": "Cane", "back": "Dog", "level": 0}, 
+        {"front": "Mela", "back": "Apple", "level":0}]
+}

@@ -1,5 +1,5 @@
 class CardSystemError(Exception):
     pass
 
-class ImportError(CardSystemError):
+class StorageManagerError(CardSystemError):
     pass

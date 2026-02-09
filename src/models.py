@@ -17,13 +17,6 @@ class Box():
     def length(self):
         return len(self.cards)
     
-    @property
-    def is_due(self):
-        if self.count % self.level == 0:
-            return True
-
-        return False
-
     def increment_session_count(self):
         self.count +=1
     
@@ -35,6 +28,9 @@ class Box():
             return IndexError("Empty box")
         
         return self.cards.popleft()
+
+    def clear(self):
+        self.cards.clear()
     
     """Pretty printer for debugging, retrieves cards in box aswell"""
     def __str__(self) -> str:
@@ -70,6 +66,12 @@ class Card():
     back: str
     level: int
     
+    # very important to cast it to int
+    # it allows for automatic unpacking after
+    # json serialization
+    def __post_init__(self):
+        self.level = int(self.level)
+        
     """Pretty printer for the card"""
     def __str__(self) -> str:
         return f"Card: {self.front}, {self.back}, lvl {self.level}"
@@ -77,8 +79,16 @@ class Card():
 """Keeps track of the session number"""
 class SessionCounter():
     def __init__(self):
-        self.count = 0
+        self._count = 0
         self.subscribers = []
+    
+    @property
+    def count(self):
+        return self._count
+    
+    @count.setter
+    def count(self, value):
+        self._count = int(value)
     
     def add_subscribers(self, subscribers):
         for subscriber in subscribers:
@@ -89,3 +99,4 @@ class SessionCounter():
         self.count += 1
         for subscriber in self.subscribers:
             subscriber.increment_session_count()
+    
